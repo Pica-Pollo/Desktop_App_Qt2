@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
 
     QVBoxLayout *layout = new QVBoxLayout(&window);
 
-    QLabel *label = new QLabel("Hola");
-    QPushButton *button = new QPushButton("Cambiar");
+    QLabel *label = new QLabel("Hello");
+    QPushButton *button = new QPushButton("Change");
 
     layout->addWidget(label);
     layout->addWidget(button);
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     QObject::connect(button, &QPushButton::clicked,
                      [label]()
                      {
-                         label->setText("Hola Aruk");
+                         label->setText("Hello Aruk");
                      });
 
     window.show();
