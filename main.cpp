@@ -1,32 +1,63 @@
 #include "mainwindow.h"
 
-#include <QApplication>
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QLabel>
-#include <QPushButton>
+#include "database/DatabaseManager.h"
 
+#include <QApplication>
+#include <QDebug>
+#include <QMessageBox>
+
+#include <cstdlib>
+
+/**
+ * @brief Inicializa y ejecuta Task Management.
+ */
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    QApplication application(argc, argv);
 
-    QWidget window;
+    QApplication::setStyle(QStringLiteral("Fusion"));
 
-    QVBoxLayout *layout = new QVBoxLayout(&window);
+    QApplication::setApplicationName("Task Management");
+    QApplication::setOrganizationName("TaskManagement");
+    QApplication::setApplicationVersion("0.1.0");
 
-    QLabel *label = new QLabel("Hello");
-    QPushButton *button = new QPushButton("Change");
+    QString databaseError;
+    const bool initializeDatabaseOnly =
+        application.arguments().contains(
+            QStringLiteral("--initialize-database"));
 
-    layout->addWidget(label);
-    layout->addWidget(button);
+    if (!DatabaseManager::instance().initialize(
+            &databaseError))
+    {
+        if (initializeDatabaseOnly)
+        {
+            qCritical() << databaseError;
+        }
+        else
+        {
+            QMessageBox::critical(
+                nullptr,
+                QStringLiteral("Error de base de datos"),
+                databaseError);
+        }
 
-    QObject::connect(button, &QPushButton::clicked,
-                     [label]()
-                     {
-                         label->setText("Hello Aruk");
-                     });
+        return EXIT_FAILURE;
+    }
 
-    window.show();
+    if (initializeDatabaseOnly)
+    {
+        qInfo() << "Base de datos inicializada en:"
+                << DatabaseManager::instance().databasePath();
+        DatabaseManager::instance().close();
+        return EXIT_SUCCESS;
+    }
 
-    return app.exec();
+    MainWindow mainWindow;
+    mainWindow.show();
+
+    const int result = application.exec();
+
+    DatabaseManager::instance().close();
+
+    return result;
 }

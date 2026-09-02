@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginWidget</class>
+ <widget class="QWidget" name="LoginWidget">
+  <property name="minimumSize"><size><width>900</width><height>600</height></size></property>
+  <layout class="QHBoxLayout" name="rootLayout" stretch="5,4">
+   <property name="leftMargin"><number>56</number></property>
+   <property name="topMargin"><number>48</number></property>
+   <property name="rightMargin"><number>56</number></property>
+   <property name="bottomMargin"><number>48</number></property>
+   <property name="spacing"><number>56</number></property>
+   <item>
+    <widget class="QFrame" name="brandPanel">
+     <property name="frameShape"><enum>QFrame::NoFrame</enum></property>
+     <layout class="QVBoxLayout" name="brandLayout">
+      <property name="leftMargin"><number>36</number></property>
+      <property name="topMargin"><number>36</number></property>
+      <property name="rightMargin"><number>36</number></property>
+      <property name="bottomMargin"><number>36</number></property>
+      <item><spacer name="brandTopSpacer"><property name="orientation"><enum>Qt::Vertical</enum></property><property name="sizeHint"><size><width>20</width><height>90</height></size></property></spacer></item>
+      <item><widget class="QLabel" name="brandEyebrowLabel"><property name="text"><string>PRODUCTIVIDAD PERSONAL</string></property></widget></item>
+      <item><widget class="QLabel" name="lblAppTitle"><property name="text"><string>TASK
+MANAGEMENT</string></property><property name="wordWrap"><bool>true</bool></property></widget></item>
+      <item><widget class="QLabel" name="brandDescriptionLabel"><property name="text"><string>Organiza tus pendientes, controla fechas importantes y recibe recordatorios desde un solo lugar.</string></property><property name="wordWrap"><bool>true</bool></property></widget></item>
+      <item><spacer name="brandBottomSpacer"><property name="orientation"><enum>Qt::Vertical</enum></property><property name="sizeHint"><size><width>20</width><height>160</height></size></property></spacer></item>
+      <item><widget class="QLabel" name="versionLabel"><property name="text"><string>Versión 1.0 · Datos guardados localmente</string></property></widget></item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="cardCenterLayout">
+     <item><spacer name="cardTopSpacer"><property name="orientation"><enum>Qt::Vertical</enum></property><property name="sizeHint"><size><width>20</width><height>80</height></size></property></spacer></item>
+     <item>
+      <widget class="QFrame" name="loginCard">
+       <property name="minimumSize"><size><width>390</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>470</width><height>16777215</height></size></property>
+       <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+       <layout class="QVBoxLayout" name="formLayout">
+        <property name="leftMargin"><number>36</number></property><property name="topMargin"><number>36</number></property><property name="rightMargin"><number>36</number></property><property name="bottomMargin"><number>36</number></property><property name="spacing"><number>12</number></property>
+        <item><layout class="QHBoxLayout" name="formTitleLayout"><property name="spacing"><number>12</number></property><item><widget class="QLabel" name="formTitleLabel"><property name="text"><string>Bienvenido</string></property></widget></item><item><spacer name="formTitleSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint"><size><width>20</width><height>20</height></size></property></spacer></item><item><widget class="QPushButton" name="themeButton"><property name="toolTip"><string>Cambiar al modo claro</string></property><property name="text"><string>Modo claro</string></property></widget></item></layout></item>
+        <item><widget class="QLabel" name="formSubtitleLabel"><property name="text"><string>Inicia sesión para continuar.</string></property><property name="wordWrap"><bool>true</bool></property></widget></item>
+        <item><spacer name="formSpacing"><property name="orientation"><enum>Qt::Vertical</enum></property><property name="sizeHint"><size><width>20</width><height>10</height></size></property></spacer></item>
+        <item><widget class="QLabel" name="usernameLabel"><property name="text"><string>Usuario</string></property></widget></item>
+        <item><widget class="QLineEdit" name="usernameEdit"><property name="placeholderText"><string>Escribe tu usuario</string></property><property name="maxLength"><number>50</number></property></widget></item>
+        <item><widget class="QLabel" name="passwordLabel"><property name="text"><string>Contraseña</string></property></widget></item>
+        <item><widget class="QLineEdit" name="passwordEdit"><property name="placeholderText"><string>Mínimo 8 caracteres</string></property><property name="echoMode"><enum>QLineEdit::Password</enum></property><property name="maxLength"><number>128</number></property></widget></item>
+        <item><widget class="QLabel" name="confirmPasswordLabel"><property name="text"><string>Confirmar contraseña</string></property></widget></item>
+        <item><widget class="QLineEdit" name="confirmPasswordEdit"><property name="placeholderText"><string>Repite la contraseña</string></property><property name="echoMode"><enum>QLineEdit::Password</enum></property><property name="maxLength"><number>128</number></property></widget></item>
+        <item><widget class="QLabel" name="errorLabel"><property name="text"><string>Error</string></property><property name="wordWrap"><bool>true</bool></property></widget></item>
+        <item><widget class="QPushButton" name="primaryButton"><property name="text"><string>Iniciar sesión</string></property><property name="default"><bool>true</bool></property></widget></item>
+        <item><widget class="QPushButton" name="switchModeButton"><property name="text"><string>Crear una cuenta nueva</string></property><property name="flat"><bool>true</bool></property></widget></item>
+       </layout>
+      </widget>
+     </item>
+     <item><spacer name="cardBottomSpacer"><property name="orientation"><enum>Qt::Vertical</enum></property><property name="sizeHint"><size><width>20</width><height>80</height></size></property></spacer></item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
